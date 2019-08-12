@@ -8,12 +8,12 @@ const { MongoClient, ObjectID } = require('mongodb')
 const connectionUrl = 'mongodb://127.0.0.1:27017'
 const databaseName = 'task-manager'
 
-const id = new ObjectID()
-console.log(id)
-console.log(id.id)
-console.log(id.id.length)
-console.log(id.toHexString().length)
-console.log(id.getTimestamp())
+// const id = new ObjectID()
+// console.log(id)
+// console.log(id.id)
+// console.log(id.id.length)
+// console.log(id.toHexString().length)
+// console.log(id.getTimestamp())
 
 MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) => {
     if (error) {
@@ -22,6 +22,14 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
 
     // console.log('Connected correctly!')
     const db = client.db(databaseName)
+
+    db.collection('users').findOne({ name: 'Eric' }, (error, user) => {
+        if (error) {
+            return console.log('Could not find user.')
+        }
+
+        console.log(user)
+    })
 
     // db.collection('users').insertOne({
     //     name: 'Eric',
