@@ -47,6 +47,14 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
         console.log(users)
     })
 
+    db.collection('users').find({ age: 43 }).count((error, count) => {
+        if (error) {
+            return console.log('Unable to fetch')
+        }
+
+        console.log(count)
+    })
+
     // db.collection('users').insertOne({
     //     name: 'Eric',
     //     age: 43
