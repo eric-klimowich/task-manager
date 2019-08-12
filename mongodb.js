@@ -1,7 +1,9 @@
 // CRUD Create Read Update Delete
 
-const mongodb = require('mongodb')
-const MongoClient = mongodb.MongoClient
+// const mongodb = require('mongodb')
+// const MongoClient = mongodb.MongoClient
+// const ObjectID = mongodb.ObjectID
+const { MongoClient, ObjectID } = require('mongodb')
 
 const connectionUrl = 'mongodb://127.0.0.1:27017'
 const databaseName = 'task-manager'
@@ -41,22 +43,22 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     //     console.log(result.ops)
     // })
 
-    db.collection('tasks').insertMany([
-        {
-            description: 'Get hangers',
-            completed: true
-        }, {
-            description: 'Put bed together',
-            completed: false
-        }, {
-            description: 'Get a job',
-            completed: false
-        }
-    ], (error, result) => {
-        if (error) {
-            return console.log('Unable to insert documents.')
-        }
+    // db.collection('tasks').insertMany([
+    //     {
+    //         description: 'Get hangers',
+    //         completed: true
+    //     }, {
+    //         description: 'Put bed together',
+    //         completed: false
+    //     }, {
+    //         description: 'Get a job',
+    //         completed: false
+    //     }
+    // ], (error, result) => {
+    //     if (error) {
+    //         return console.log('Unable to insert documents.')
+    //     }
 
-        console.log(result.ops)
-    })
+    //     console.log(result.ops)
+    // })
 })
