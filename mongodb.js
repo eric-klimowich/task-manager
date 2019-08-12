@@ -23,36 +23,44 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     // console.log('Connected correctly!')
     const db = client.db(databaseName)
 
-    db.collection('users').findOne({ name: 'Eric' }, (error, user) => {
+    // db.collection('users').findOne({ name: 'Eric' }, (error, user) => {
+    //     if (error) {
+    //         return console.log('Unable to fetch.')
+    //     }
+
+    //     console.log(user)
+    // })
+
+    // db.collection('users').findOne({ _id: new ObjectID("5d51b9c2962a7d044ad8c441") }, (error, user) => {
+    //     if (error) {
+    //         return console.log('Unable to fetch.')
+    //     }
+
+    //     console.log(user)
+    // })
+
+    // db.collection('users').find({ age: 43 }).toArray((error, users) => {
+    //     if (error) {
+    //         return console.log('Unable to fetch')
+    //     }
+
+    //     console.log(users)
+    // })
+
+    // db.collection('users').find({ age: 43 }).count((error, count) => {
+    //     if (error) {
+    //         return console.log('Unable to fetch')
+    //     }
+
+    //     console.log(count)
+    // })
+
+    db.collection('tasks').findOne({ _id: new ObjectID("5d51bb3f31542f04d4c45d72") }, (error, task) => {
         if (error) {
             return console.log('Unable to fetch.')
         }
 
-        console.log(user)
-    })
-
-    db.collection('users').findOne({ _id: new ObjectID("5d51b9c2962a7d044ad8c441") }, (error, user) => {
-        if (error) {
-            return console.log('Unable to fetch.')
-        }
-
-        console.log(user)
-    })
-
-    db.collection('users').find({ age: 43 }).toArray((error, users) => {
-        if (error) {
-            return console.log('Unable to fetch')
-        }
-
-        console.log(users)
-    })
-
-    db.collection('users').find({ age: 43 }).count((error, count) => {
-        if (error) {
-            return console.log('Unable to fetch')
-        }
-
-        console.log(count)
+        console.log(task)
     })
 
     // db.collection('users').insertOne({
