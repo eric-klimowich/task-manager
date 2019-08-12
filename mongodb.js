@@ -63,6 +63,14 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
         console.log(task)
     })
 
+    db.collection('tasks').find({ completed: false }).toArray((error, tasks) => {
+        if (error) {
+            return console.log('Unable to fetch.')
+        }
+
+        console.log(tasks)
+    })
+
     // db.collection('users').insertOne({
     //     name: 'Eric',
     //     age: 43
