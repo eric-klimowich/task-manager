@@ -21,17 +21,30 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     }
 
     // console.log('Connected correctly!')
+
     const db = client.db(databaseName)
 
-    const updatePromise = db.collection('users').updateOne({
+    // const updatePromise = db.collection('users').updateOne({
+    //     _id: new ObjectID("5d51ae21f81bd600b32ee8af")
+    // }, {
+    //     $set: {
+    //         name: 'Mike'
+    //     }
+    // })
+
+    // updatePromise.then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
+
+    db.collection('users').updateOne({
         _id: new ObjectID("5d51ae21f81bd600b32ee8af")
     }, {
-        $set: {
-            name: 'Mike'
+        $inc: {
+            age: 1
         }
-    })
-
-    updatePromise.then((result) => {
+    }).then((result) => {
         console.log(result)
     }).catch((error) => {
         console.log(error)
