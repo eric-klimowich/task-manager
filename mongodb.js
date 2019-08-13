@@ -24,6 +24,14 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
 
     const db = client.db(databaseName)
 
+    db.collection('users').deleteMany({
+        age: 44
+    }).then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
+    })
+
     // const updatePromise = db.collection('users').updateOne({
     //     _id: new ObjectID("5d51ae21f81bd600b32ee8af")
     // }, {
@@ -50,17 +58,17 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     //     console.log(error)
     // })
 
-    db.collection('tasks').updateMany({
-        completed: false
-    }, {
-        $set: {
-            completed: true
-        }
-    }).then((result) => {
-        console.log(result)
-    }).catch((error) => {
-        console.log(error)
-    })
+    // db.collection('tasks').updateMany({
+    //     completed: false
+    // }, {
+    //     $set: {
+    //         completed: true
+    //     }
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
 
     // db.collection('users').findOne({ name: 'Eric' }, (error, user) => {
     //     if (error) {
